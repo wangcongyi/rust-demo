@@ -57,12 +57,23 @@ let s2 = s1;
 
 This looks very similar to the previous code, so we might assume that the way it works would be the same: 
 But this isn’t quite what happens.
+图一
 A String is made up of three parts, shown on the left: 
 a pointer to the memory that holds the contents of the string, a length, and a capacity. 
 This group of data is stored on the stack. On the right is the memory on the heap that holds the contents.
+图二
+When we assign s1 to s2, the String data is copied, meaning we copy the pointer, the length, 
+and the capacity that are on the stack. We do not copy the data on the heap that the pointer refers to. 
+图三
+which is what memory would look like if Rust instead copied the heap data as well. 
+If Rust did this, the operation s2 = s1 could be very expensive in terms of runtime 
+performance if the data on the heap were large.
+
 
 ```
 
-![string version](https://doc.rust-lang.org/book/img/trpl04-01.svg)
+<img src="https://doc.rust-lang.org/book/img/trpl04-01.svg" alt="string version" width="375"/>
+<img src="https://doc.rust-lang.org/book/img/trpl04-02.svg" alt="string version" width="375"/>
+<img src="https://doc.rust-lang.org/book/img/trpl04-03.svg" alt="string version" width="375"/>
 
 
