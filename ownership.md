@@ -30,3 +30,39 @@ Accessing data in the heap is slower than accessing data on the stack because yo
 When your code calls a function, the values passed into the function (including, potentially, pointers to data on the heap) and the function’s local variables get pushed onto the stack. When the function is over, those values get popped off the stack.
 
 Keeping track of what parts of code are using what data on the heap, minimizing the amount of duplicate data on the heap, and cleaning up unused data on the heap so you don’t run out of space are all problems that ownership addresses. Once you understand ownership, you won’t need to think about the stack and the heap very often, but knowing that managing heap data is why ownership exists can help explain why it works the way it does.
+
+
+
+
+#### Ways Variables and Data Interact: Move
+
+```rs
+
+let x = 5;
+let y = x;
+
+We can probably guess what this is doing: “bind the value 5 to x; 
+then make a copy of the value in x and bind it to y.”
+We now have two variables, x and y, and both equal 5. This is indeed what is happening, 
+because integers are simple values with a known, fixed size, and these two 5 values are pushed onto the stack.
+
+```
+
+But at the **String** version:
+
+```rs
+
+let s1 = String::from("hello");
+let s2 = s1;
+
+This looks very similar to the previous code, so we might assume that the way it works would be the same: 
+But this isn’t quite what happens.
+A String is made up of three parts, shown on the left: 
+a pointer to the memory that holds the contents of the string, a length, and a capacity. 
+This group of data is stored on the stack. On the right is the memory on the heap that holds the contents.
+
+```
+
+![string version](https://doc.rust-lang.org/book/img/trpl04-01.svg)
+
+
