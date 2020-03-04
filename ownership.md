@@ -77,3 +77,16 @@ performance if the data on the heap were large.
 <img src="https://doc.rust-lang.org/book/img/trpl04-03.svg" alt="string version" width="375"/>
 
 
+#### Ways Variables and Data Interact: Clone
+
+```rs
+
+fn main() {
+let s1 = String::from("hello");
+let s2 = s1.clone();
+
+If we do want to deeply copy the heap data of the String, not just the stack data, 
+we can use a common method called clone.
+
+```
+
