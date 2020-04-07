@@ -125,3 +125,19 @@ fn main() {
   copy 就像 复制、粘贴 操作完成之后，原来的数据依然存在。新数据是原来数据的复制品。  
   move 就像 剪切、粘贴 操作完成之后，原来的数据不存在了。新数据被移动到新的地方。  **之前变量的生命周期已经结束**
   
+  
+```rs
+
+#[derive(Copy, Clone)]
+struct Foo {
+  data: i32,
+}
+
+fn main() {
+  let f1 = Foo { data: 0 };
+  let f2 = f1;
+  println!("{:?}", f1.data);
+}
+
+```
+  
