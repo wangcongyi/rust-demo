@@ -14,3 +14,23 @@
 |  BTreeSet    |  基于 B 树的集合 相当于没有值的 BTreeMap |
 |  BinaryHeap  |  基于二叉堆实现的优先级队列 |
 
+
+```rs
+
+fn main() {
+  let v1 = Vec::<i32>::new();   //  or  let v1 = Vec::<i32>::default()
+
+  let v2 = Vec::<String>::with_capacity(1000);   // with_capacity 方法可以预先分配一个较大空间，避免插入数据动态扩容
+
+  let v3 = vec![1, 2, 3, 4];   //  也可以利用宏来初始化
+  
+  let mut v4 = Vec::new();
+  v4.push(1);
+  v4.extend_from_slice(&[10, 20, 30, 40, 50]);
+  v4.insert(2, 100);
+  println!("capacity: {}, length: {}", v4.capacity(), v4.len());
+  
+}
+
+
+```
