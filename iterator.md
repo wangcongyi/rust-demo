@@ -18,6 +18,7 @@
 ```rs
 
 fn main() {
+
   let v1 = Vec::<i32>::new();   //  or  let v1 = Vec::<i32>::default()
 
   let v2 = Vec::<String>::with_capacity(1000);   // with_capacity 方法可以预先分配一个较大空间，避免插入数据动态扩容
@@ -30,6 +31,19 @@ fn main() {
   v4.insert(2, 100);
   println!("capacity: {}, length: {}", v4.capacity(), v4.len());
   
+  v4[5] = 55;          //  调用 IndexMut 运算符， 可以写入数据
+  let i = v4[5];
+  println!("{:?}", v4);
+  println!("{}", i);
+  
+  //    Index 运算符直接访问， 如果越界则会造成 panic 而 get 方法不会，  返回一个 Option<T>
+   if let Some(i) = v4.get(6) {
+    println!("{}", i);
+  }
+
+  let slice = &v4[4..];
+  println!("{:?}", slice);
+ 
 }
 
 
