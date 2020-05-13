@@ -48,3 +48,48 @@ fn main() {
 
 
 ```
+
+
+
+```rs
+
+use std::collections::HashMap;
+
+#[derive(Hash, Eq, PartialEq, Debug)]
+struct Person {
+  first_name: String,
+  last_name: String,
+}
+
+impl Person {
+  fn new(first: &str, last: &str) -> Self {
+    Person {
+      first_name: first.to_string(),
+      last_name: last.to_string(),
+    }
+  }
+}
+
+fn main() {
+  let mut book = HashMap::new();
+  book.insert(Person::new("AA", "aa"), "111");
+  book.insert(Person::new("BB", "bb"), "222");
+  book.insert(Person::new("CC", "cc"), "333");
+
+  let p = Person::new("AA", "aa");
+
+  if let Some(number) = book.get(&p) {
+    println!("{}", number);
+  }
+
+  book.remove(&p);
+
+  println!("{}", book.contains_key(&p));
+
+  book.entry(Person::new("DD", "dd")).or_insert("444");
+  println!("{:?}", book);
+}
+
+```
+
+
