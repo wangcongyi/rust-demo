@@ -87,7 +87,7 @@ fn main() {
   println!("{}", book.contains_key(&p));
 
   book.entry(Person::new("DD", "dd")).or_insert("444");
-  println!("{:?}", book);
+  println!("{:?}", book);         //  HaspMap 不保证遍历结果是顺序的   BTreeMap 可以
 }
 
 ```
