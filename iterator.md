@@ -93,3 +93,27 @@ fn main() {
 ```
 
 
+```rs 
+
+// BTrrMap 比 HashMap 多的一项功能是 不仅可以查询单个 key 的结果， 还可以查询一个区间的结果
+
+use std::collections::BTreeMap;
+
+fn main() {
+  let mut map = BTreeMap::new();
+  map.insert(1, "a");
+  map.insert(2, "b");
+  map.insert(3, "c");
+  map.insert(4, "d");
+  map.insert(5, "e");
+  map.insert(6, "f");
+  map.insert(7, "g");                 //  相同 key 会被之后的覆盖掉
+
+  for (k, v) in map.range(2..6) {     //  前闭后开
+    println!("{}: {}", k, v); 
+  }
+}
+
+```
+
+
