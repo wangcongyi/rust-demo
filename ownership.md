@@ -32,6 +32,24 @@ When your code calls a function, the values passed into the function (including,
 Keeping track of what parts of code are using what data on the heap, minimizing the amount of duplicate data on the heap, and cleaning up unused data on the heap so you don’t run out of space are all problems that ownership addresses. Once you understand ownership, you won’t need to think about the stack and the heap very often, but knowing that managing heap data is why ownership exists can help explain why it works the way it does.
 
 
+这段原文很精彩，翻译如下：  
+- stack 按只的接收顺序来存储，按相反的顺序将它们移除（后进先出 LIFO）  
+  > 添加数据叫做 压入栈  
+  > 移除数据叫做 弹出栈
+
+- 所有存储在 stack 上的数据必须拥有已知的固定大小  
+  > 编译时大小未知的数据或运行时大小可能发生变化的数据必须存放在 heap 上  
+
+- heap 内存组织性差一些
+  > 当你把数据放入 heap 时， 会请求一定数量的空间  
+  > 操作系统在 heap 里找到一块足够大的空间，把它标记为在用，并返回一个指针，也就是这个空间的地址  
+  > 这个过程叫做在 heap 上进行内存分配  
+  > 把值压到 stack 上不叫分配  
+  > 因为指针也是已知的固定大小，可以把指针存放在 stack 上  
+
+- 把数据压到 stack 上要比在 heap 上分配快得多 
+  > 因为操作系统不需要寻找足够大的空间存放新数据，那个位置永远在 stack 顶端  
+
 
 
 #### Ways Variables and Data Interact: Move
