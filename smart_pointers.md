@@ -26,3 +26,13 @@
 - 在 heap 上存储数据 而不是 stack
 - 在编译的时候， rust 需要知道一个类型所占的空间大小，但递归类型的大小无法在编译时确定 
   
+
+#### Deref Trait  
+##### 解引用与可变性  
+  - 可使用 DerefMut trait 重载可变引用的 * 运算符  
+  - 在类型和 trait 在以下三种情况发生时，rust 会执行 deref coercion
+    1. 当 T: Deref<Target=U>, 允许 &T 转换为 &U  
+    2. 当 T: DerefMut<Target=U>, 允许 &mut T 转换为 &mut U  
+    3. 当 T: Deref<Target=U>, 允许 &mut T 转换为 &U  
+
+  
