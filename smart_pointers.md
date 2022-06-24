@@ -34,5 +34,18 @@
     1. 当 T: Deref<Target=U>, 允许 &T 转换为 &U  
     2. 当 T: DerefMut<Target=U>, 允许 &mut T 转换为 &mut U  
     3. 当 T: Deref<Target=U>, 允许 &mut T 转换为 &U  
+  
+#### Drop Trait  
+- 实现 Drop Trait 可以让我们自定义当变量离开作用域的时候发生的动作。
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
   
