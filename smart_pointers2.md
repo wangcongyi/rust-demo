@@ -5,3 +5,9 @@
   - reference couting （引用计数）
   - 追踪所有值的引用
   - 0个引用，表示该值可以被清理掉
+  
+> RefCell<T>/Rc<T> VS Mutex<T>/Arc<T>
+  
+1. Mutex<T> 提供了内部可变性，和 Cell 家族一样  
+2. 我们使用 RefCell<T> 来改变 Rc<T> 里面的内容  
+3. 我们使用 Mutex<T> 来改变 Arc<T> 里面的内容
