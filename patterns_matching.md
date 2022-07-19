@@ -1,6 +1,6 @@
 #### 匹配模式
 
-```
+```rs
 
 fn main() {
   let favorite_color: Option<&str> = None;
@@ -25,7 +25,7 @@ fn main() {
 ```
 
 
-```
+```rs
 
 fn main() {
   let mut stack = Vec::new();
@@ -50,8 +50,51 @@ fn main() {
 
 - 函数参数， let 语句， for 循环只接收无可辩驳的模式  
 - if let 和 while let 可以接收可辩驳和无可辩驳的模式
-    
-    
-    
-    
 
+
+```rs
+
+struct Point {
+  x: i32,
+  y: i32,
+}
+
+enum Message {
+  Quit,
+  Move { x: f64, y: f64 },
+  Write(String),
+  ChangeColor(i32, i32, i32),
+}
+
+
+fn main() {
+  let x = 1;
+
+  match x {
+    1 | 2 => println!("111"),
+    3 | 4 => println!("34"),
+    5..10 => println!("555...1000"),
+    _ => {}
+  }
+
+  let p = Point { x: 0, y: 7 };
+
+  match p {
+    Point { x, y: 0 } => println!("On the x axis at {}", x),
+    Point { x: 0, y } => println!("On the y axis at {}", y),
+    _ => {}
+  }
+
+  let msg = Message::ChangeColor(0, 345, 577);
+
+  match msg {
+    Message::Quit => println!("The qui"),
+    Message::Move { x, y } => println!("The move"),
+    Message::Write(text) => println!("The text {}", text),
+    _ => {}
+  }
+}
+
+```
+    
+    
